@@ -6,4 +6,13 @@ const messages = [
 ]
 
 
-let currentIndex
+let currentIndex = 0; //Index
+
+const textElement = document.getElementById("intro-text");
+
+textElement.addEventListener("mouseenter", () => {
+    //Move to next message
+    currentIndex = (currentIndex + 1) % messages.length;
+    textElement.textContent = messages[currentIndex];
+
+});
