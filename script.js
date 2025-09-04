@@ -11,8 +11,13 @@ let currentIndex = 0; //Index
 const textElement = document.getElementById("intro-text");
 
 textElement.addEventListener("mouseenter", () => {
-    //Move to next message
-    currentIndex = (currentIndex + 1) % messages.length;
-    textElement.textContent = messages[currentIndex];
 
+    textElement.style.opacity = 0;
+
+    //Move to next message and shows how the message fades
+    setTimeout ( () => {
+        currentIndex = (currentIndex + 1) % messages.length;
+        textElement.textContent = messages[currentIndex];
+        textElement.style.opacity = 1; //Fade back in
+    }, 400)
 });
